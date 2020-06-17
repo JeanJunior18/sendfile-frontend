@@ -1,8 +1,13 @@
 import React, { useCallback, useState } from 'react';
 import {useDropzone} from 'react-dropzone';
+import './styles.css';
+
+interface Props {
+  onLoad: (file: File) => void
+}
 
 
-const Dropzone: React.FC = () => {
+const Dropzone: React.FC<Props> = ({onLoad}) => {
 
   const [fileSentURL, setFileSentURL] = useState('');
 
@@ -10,6 +15,7 @@ const Dropzone: React.FC = () => {
     const file = acceptedFiles[0];
     const fileURL = URL.createObjectURL(file);
     setFileSentURL(fileURL);
+    onLoad(file)
   }, [])
   const {getRootProps, getInputProps} = useDropzone({
     onDrop,
@@ -17,7 +23,7 @@ const Dropzone: React.FC = () => {
   })
 
   return (
-    <div {...getRootProps()}>
+    <div className='dropzone' {...getRootProps()}>
       <input {...getInputProps()} accept='image/*' />
       {
         fileSentURL ?

@@ -1,0 +1,15 @@
+.dropzone {
+  height: 300px;
+  border-radius: 10px;
+  background: #E1FAEC;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 48px;
+}
+.dropzone img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
