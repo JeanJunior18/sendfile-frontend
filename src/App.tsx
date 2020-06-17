@@ -1,13 +1,10 @@
 import React from 'react';
 import './App.css';
+import Router from './Router';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        Hello Send File
-      </header>
-    </div>
+    <Router />
   );
 }
 
